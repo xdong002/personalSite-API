@@ -19,7 +19,14 @@ app.use(function(req, res, next) {
  * DATABASE *
  ************/
 
-// var db = require('./models');
+var db = require('./models');
+
+var profile = {
+  name: "Ken Dong",
+  githubLink: "https://github.com/xdong002",
+  personalSiteLink: "https://xdong002.github.io",
+  currentCity: "San Francisco"
+}
 
 /**********
  * ROUTES *
@@ -41,6 +48,10 @@ app.get('/', function homepage(req, res) {
 /*
  * JSON API Endpoints
  */
+
+ app.get('/api/profile',function(req,res){
+   res.json(profile);
+ })
 
 app.get('/api', function apiIndex(req, res) {
   // TODO: Document all your api endpoints below as a simple hardcoded JSON object.
